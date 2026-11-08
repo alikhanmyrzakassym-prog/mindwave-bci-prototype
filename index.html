@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindWave | Brain-Computer Interface</title>
+<style>
+:root {
+  --bg:#0b1020;--panel:#131c31;--panel2:#1a2740;
+  --blue:#65b8ff;--cyan:#66e0d0;--text:#edf4ff;
+  --muted:#9aabc4;--line:#293750;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:22px 7%;display:flex;justify-content:space-between;
+align-items:center;border-bottom:1px solid var(--line)}
+.logo{font-size:23px;font-weight:800;letter-spacing:1px}
+.logo span{color:var(--cyan)}
+.tag{font-size:12px;color:var(--muted)}
+main{max-width:1050px;margin:auto;padding:35px 20px 70px}
+nav{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:30px}
+nav button,.btn{border:1px solid var(--line);background:var(--panel);
+color:var(--text);padding:11px 15px;border-radius:12px;cursor:pointer}
+nav button.active,.btn.primary{background:#174b78;border-color:#287ebc}
+button:hover{filter:brightness(1.2)}
+section{display:none;animation:fade .25s ease}
+section.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.08;margin:15px 0}
+h2{font-size:29px;margin-top:0}
+h3{margin-top:0}
+p{line-height:1.7;color:var(--muted)}
+.hero{padding:45px 30px;border:1px solid var(--line);border-radius:25px;
+background:radial-gradient(circle at 85% 10%,#174b7855,transparent 40%),var(--panel)}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:22px 0}
+.card{background:var(--panel);border:1px solid var(--line);padding:21px;border-radius:17px}
+.card p{font-size:14px}
+.big{font-size:30px;font-weight:800;color:var(--cyan)}
+.pill{display:inline-block;padding:6px 10px;border-radius:30px;
+background:#183d50;color:var(--cyan);font-size:12px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.notice{border-left:3px solid var(--cyan);padding:12px 16px;
+background:#122638;border-radius:0 12px 12px 0;margin:20px 0}
+.gamebox{height:240px;border-radius:18px;background:linear-gradient(135deg,#10243e,#172d4a);
+border:1px solid var(--line);position:relative;overflow:hidden;margin:20px 0}
+.fish{position:absolute;left:12%;top:42%;font-size:42px;transition:transform .5s}
+.bubble{position:absolute;border-radius:50%;background:#65b8ff22}
+.bar{height:10px;background:#26354c;border-radius:10px;overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+label{display:block;color:var(--muted);font-size:13px;margin:15px 0 7px}
+input{width:100%;accent-color:var(--cyan)}
+footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted);font-size:12px}
+.small{font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">MIND<span>WAVE</span></div>
+  <div class="tag">BRAIN-TECH RESEARCH PROTOTYPE</div>
+</header>
+
+<main>
+<nav>
+<button class="active" onclick="show('home',this)">Home</button>
+<button onclick="show('guide',this)">Instructions</button>
+<button onclick="show('game',this)">Game</button>
+<button onclick="show('feedback',this)">Feedback</button>
+<button onclick="show('summary',this)">Summary</button>
+<button onclick="show('research',this)">Research</button>
+</nav>
+
+<section id="home" class="active">
+<div class="hero">
+<div class="eyebrow">NON-INVASIVE BCI CONCEPT</div>
+<h1>Connecting brain signals<br>with visual feedback.</h1>
+<p>MindWave explores how EEG-based brain-computer interface concepts could make rehabilitation activities more engaging through simple interactive experiences.</p>
+<span class="pill">Concept prototype · Not a medical device</span>
+<div class="actions">
+<button class="btn primary" onclick="show('guide')">Explore the prototype →</button>
+<button class="btn" onclick="show('research')">View research insights</button>
+</div>
+</div>
+<div class="grid">
+<div class="card"><div class="big">01</div><h3>Signal acquisition</h3><p>Conceptual EEG signal collection from a non-invasive device.</p></div>
+<div class="card"><div class="big">02</div><h3>Signal processing</h3><p>Quality checking, preprocessing and feature extraction.</p></div>
+<div class="card"><div class="big">03</div><h3>Visual feedback</h3><p>Translating interpreted signals into a simple game experience.</p></div>
+</div>
+<div class="notice">Our long-term research direction is to explore potential applications in rehabilitation activities for children with cerebral palsy.</div>
+</section>
+
+<section id="guide">
+<div class="eyebrow">GETTING STARTED</div>
+<h2>How the concept works</h2>
+<p>This prototype demonstrates a possible user journey. It does not connect to EEG hardware.</p>
+<div class="grid">
+<div class="card"><h3>01 · Introduction</h3><p>Learn about the purpose of the interactive session.</p></div>
+<div class="card"><h3>02 · Calibration concept</h3><p>A real system would first assess signal quality and establish a baseline.</p></div>
+<div class="card"><h3>03 · Interaction</h3><p>Explore a simple visual environment with simulated feedback.</p></div>
+<div class="card"><h3>04 · Reflection</h3><p>Review the demonstration and consider possible improvements.</p></div>
+</div>
+<div class="notice">The game is controlled by on-screen buttons. No brain activity is measured or interpreted.</div>
+<button class="btn primary" onclick="show('game')">Start demonstration →</button>
+</section>
+
+<section id="game">
+<div class="eyebrow">INTERACTIVE DEMONSTRATION</div>
+<h2>MindWave Ocean</h2>
+<p>Explore a simple visual feedback environment. Move the fish using the buttons below.</p>
+<div class="gamebox" id="ocean">
+<div class="bubble" style="width:45px;height:45px;left:70%;top:20%"></div>
+<div class="bubble" style="width:22px;height:22px;left:48%;top:65%"></div>
+<div class="bubble" style="width:30px;height:30px;left:85%;top:70%"></div>
+<div class="fish" id="fish">🐟</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="moveFish(-1)">← Move left</button>
+<button class="btn primary" onclick="moveFish(1)">Move right →</button>
+<button class="btn" onclick="resetFish()">Reset</button>
+</div>
+<p class="small">Illustrative interaction only. This is not EEG-controlled.</p>
+</section>
+
+<section id="feedback">
+<div class="eyebrow">SIMULATED SIGNAL DISPLAY</div>
+<h2>Visual feedback</h2>
+<p>The following values are illustrative interface elements, not real measurements.</p>
+<div class="grid">
+<div class="card"><p>Signal quality</p><div class="big">Demo</div><div class="bar"><span style="width:78%"></span></div></div>
+<div class="card"><p>Interaction state</p><div class="big" id="state">Ready</div><p>Simulated interface state</p></div>
+</div>
+<div class="card">
+<h3>Explore the feedback concept</h3>
+<label for="level">Demonstration feedback level</label>
+<input id="level" type="range" min="0" max="100" value="60" oninput="updateLevel(this.value)">
+<div class="big" id="levelText">60%</div>
+<div class="bar"><span id="levelBar" style="width:60%"></span></div>
+<p class="small">Changing this slider does not measure concentration, brain activity or clinical progress.</p>
+</div>
+</section>
+
+<section id="summary">
+<div class="eyebrow">SESSION REFLECTION</div>
+<h2>Demonstration summary</h2>
+<div class="grid">
+<div class="card"><p>Prototype interaction</p><div class="big">Visual</div></div>
+<div class="card"><p>EEG connection</p><div class="big">None</div></div>
+<div class="card"><p>Data storage</p><div class="big">None</div></div>
+</div>
+<div class="card">
+<h3>Key reflection</h3>
+<p>A visual feedback system may offer an engaging way to interact with a rehabilitation-inspired activity. Further research would be needed to evaluate usability, accessibility, safety and scientific validity.</p>
+</div>
+<button class="btn primary" onclick="show('research')">Explore research insights →</button>
+</section>
+
+<section id="research">
+<div class="eyebrow">PRELIMINARY COMMUNITY FEEDBACK</div>
+<h2>What we learned</h2>
+<p>Survey responses collected for the MindWave project. These are exploratory findings from a small convenience sample, not representative statistics.</p>
+<div class="grid">
+<div class="card"><div class="big">23</div><p>Total submissions</p></div>
+<div class="card"><div class="big">22</div><p>Valid consenting responses</p></div>
+<div class="card"><div class="big">7</div><p>Educators among respondents</p></div>
+</div>
+<div class="card">
+<h3>Potential benefits identified</h3>
+<div id="benefits"></div>
+</div>
+<div class="card">
+<h3>Main concerns</h3>
+<div id="concerns"></div>
+</div>
+<div class="card">
+<h3>What matters most?</h3>
+<div id="priorities"></div>
+</div>
+<div class="card">
+<h3>Potential barriers</h3>
+<div id="barriers"></div>
+</div>
+<div class="notice">The survey is preliminary and does not establish clinical effectiveness or prove that the concept improves rehabilitation outcomes.</div>
+</section>
+</main>
+
+<footer>
+MindWave · Junior Academy BrainTech Challenge 2026<br>
+Concept research prototype · No medical claims
+</footer>
+
+<script>
+function show(id,btn){
+ document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+ else document.querySelectorAll('nav button').forEach(b=>{
+   if(b.textContent.toLowerCase().includes(id))b.classList.add('active');
+ });
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+let position=12;
+function moveFish(direction){
+ position=Math.max(0,Math.min(78,position+direction*10));
+ document.getElementById('fish').style.left=position+'%';
+ document.getElementById('state').textContent='Active';
+}
+function resetFish(){
+ position=12;
+ document.getElementById('fish').style.left=position+'%';
+ document.getElementById('state').textContent='Ready';
+}
+function updateLevel(v){
+ document.getElementById('levelText').textContent=v+'%';
+ document.getElementById('levelBar').style.width=v+'%';
+}
+function bars(id,items,max){
+ document.getElementById(id).innerHTML=items.map(([name,value])=>
+ `<div style="margin:15px 0">
+ <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px">
+ <span>${name}</span><strong>${value}</strong></div>
+ <div class="bar"><span style="width:${value/max*100}%"></span></div>
+ </div>`).join('');
+}
+bars('benefits',[
+ ['Better access to rehabilitation',6],
+ ['Visual feedback during exercises',6],
+ ['More engaging exercises',5],
+ ['Support for home practice',4],
+ ['Not sure',1]
+],6);
+bars('concerns',[
+ ['Cost and accessibility',7],
+ ['Insufficient scientific evidence',4],
+ ['Privacy of brain data',3],
+ ['Safety and supervision',3],
+ ['Reliability',3],
+ ['Ease of use',1],
+ ['Not sure',1]
+],7);
+bars('priorities',[
+ ['Scientific evidence',8],
+ ['Consulting specialists',6],
+ ['User and caregiver perspectives',5],
+ ['Affordability',3]
+],8);
+bars('barriers',[
+ ['Equipment cost and maintenance',10],
+ ['Shortage of specialists',10],
+ ['Setup complexity',1],
+ ['Internet and power access',1]
+],10);
+</script>
+</body>
+</html>
